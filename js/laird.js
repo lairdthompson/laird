@@ -1,5 +1,3 @@
-
-
 var colors = new Array(
   //[62,35,255],
   //[60,255,60],
@@ -63,4 +61,69 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
 }
 
 setInterval(updateGradient,30);
+
+//Tab box
+
+$(document).ready(function() {
+
+  $(".tab_content").hide();
+  $(".tab_content:first").show(); 
+
+  $("ul.tabs li").click(function() {
+    $("ul.tabs li").removeClass("active");
+    $(this).addClass("active");
+    $(".tab_content").hide();
+    var activeTab = $(this).attr("rel"); 
+    $("#"+activeTab).fadeIn(); 
+  });
+
+
+
+  // get previous state and initiate the class
+if($.cookie("state") == 1) {
+    $("#tab-t").addClass("hide-top");
+} else {
+    $("#tab-t").removeClass("hide-top");
+}
+
+
+    $("#tab-t").toggleClass("hide-top");
+    if($("nav").hasClass("hide-top")) {
+        $.cookie("state", 1);
+    } else {
+        $.cookie("state", 0);
+    }
+    return false;
+  });
+  
+
+//Masonary disabled
+
+var container = document.querySelector('.masonry');
+    var msnry;
+    // initialize Masonry after all images have loaded
+    imagesLoaded( container, function() {
+    msnry = new Masonry( container );
+    });
+  var container = document.querySelector('.masonry');
+    var msnry = new Masonry( container, {
+      // options
+      columnWidth: 200,
+      itemSelector: '.masonry.item'
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
